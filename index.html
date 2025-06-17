@@ -65,48 +65,6 @@
       transform: scale(1.1);
     }
 
-    .buy-now {
-      background: #f43f5e;
-      padding: 6px 12px;
-      border-radius: 6px;
-      color: #fff;
-      font-weight: bold;
-      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-    }
-
-    .buy-now:hover {
-      background: #be123c;
-      transform: scale(1.1);
-      box-shadow: 0 0 10px #be123c;
-    }
-
-    section {
-      padding: 60px 50px;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    section h2 {
-      font-size: 2em;
-      color: #f43f5e;
-      margin-bottom: 10px;
-      text-shadow: 0 0 5px rgba(244, 63, 94, 0.7);
-    }
-
-    section p {
-      max-width: 600px;
-      margin: auto;
-      color: #9ca3af;
-      line-height: 1.6;
-    }
-
     .hero {
       display: flex;
       align-items: center;
@@ -141,6 +99,26 @@
       color: #f43f5e;
     }
 
+    #dynamic-role {
+      color: #f43f5e;
+      font-weight: bold;
+      border-right: 2px solid #f43f5e;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      max-width: 0;
+      animation: typing 2s steps(20, end) forwards, blink 0.7s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { max-width: 0; }
+      to { max-width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
     .hero-image img {
       max-width: 300px;
       border-radius: 12px;
@@ -171,6 +149,22 @@
     .social-skills div {
       margin: 20px;
     }
+    #dynamic-role {
+  display: inline-block;
+  border-right: 2px solid white;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@keyframes typing {
+  from { max-width: 0; }
+  to { max-width: 100vw; } /* or a fixed value if you want */
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
 
     .section-title {
       font-weight: bold;
@@ -227,7 +221,7 @@
       <img src="images/akhil shijo.jpg" alt="Akhil Shijo">
       <strong>Akhil Shijo</strong>
     </div>
-      <nav>
+    <nav>
       <a href="index.html">HOME</a>
       <a href="education.html">QUALIFICATIONS</a>
       <a href="https://akhil-portfolio-woad.vercel.app" target="_blank">PORTFOLIO</a>
@@ -236,16 +230,14 @@
       <a href="pricing.html">PRICING</a>
       <a href="certificates.html">CERTIFICATIONS</a>
       <a href="contact.html">CONTACT</a>
-
-     
     </nav>
   </header>
 
   <section class="hero" id="home">
     <div class="hero-text">
       <p>WELCOME TO MY WORLD</p>
-      <h1>Hi, I’m <span>Akhil Shijo</span><br> a Developer.</h1>
-      <p>I use animation as a third dimension to simplify experiences and guide through every interaction. I’m not adding motion just to spruce things up, but doing it in ways that add meaning.</p>
+      <h1>Hi, I’m <span>Akhil Shijo</span><br> <span id="dynamic-role"></span></h1>
+      <p>I design with purpose, build with precision, and craft powerful digital experiences that inspire, engage, and turn bold ideas into unforgettable stories people trust.</p>
     </div>
     <div class="hero-image">
       <img src="images/akhil shijo.jpg" alt="Akhil Shijo">
@@ -256,29 +248,28 @@
     <div>
       <p class="section-title">FIND WITH ME</p>
       <div class="social-icons">
-  <a href="https://www.linkedin.com/in/akhil-shijo" target="_blank" aria-label="LinkedIn">
-    <i class="fab fa-linkedin"></i>
-  </a>
-  <a href="https://github.com/14akhilshijo" target="_blank" aria-label="GitHub">
-    <i class="fab fa-github"></i>
-  </a>
-  <a href="mailto:akhilshijo20@gmail.com" target="_blank" aria-label="Email">
-    <i class="fas fa-envelope"></i>
-  </a>
-  <a href="https://x.com/ShijoAkhil92772" target="_blank" aria-label="Twitter / X">
-    <i class="fab fa-twitter"></i>
-  </a>
-  <a href="https://wa.me/918137864105" target="_blank" aria-label="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-  <a href="https://www.instagram.com/_akhil_shijo_/" target="_blank" aria-label="Instagram">
-    <i class="fab fa-instagram"></i>
-  </a>
-  <a href="https://www.facebook.com/your-facebook-profile" target="_blank" aria-label="Facebook">
-    <i class="fab fa-facebook"></i>
-  </a>
-</div>
-
+        <a href="https://www.linkedin.com/in/akhil-shijo" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/14akhilshijo" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:akhilshijo20@gmail.com" target="_blank" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://x.com/ShijoAkhil92772" target="_blank" aria-label="Twitter / X">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://wa.me/918137864105" target="_blank" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/_akhil_shijo_/" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/your-facebook-profile" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </div>
     </div>
     <div>
       <p class="section-title">BEST SKILL ON</p>
@@ -293,29 +284,70 @@
     </div>
   </section>
 
- 
-
-  <script>
-    // Intersection observer for sections
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.2
+ <script>
+  // Intersection observer
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
     });
+  }, { threshold: 0.2 });
 
-    document.querySelectorAll('section').forEach(sec => {
-      observer.observe(sec);
-    });
+  document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+  observer.observe(document.querySelector('.hero-text'));
+  observer.observe(document.querySelector('.hero-image'));
 
-    const heroText = document.querySelector('.hero-text');
-    const heroImage = document.querySelector('.hero-image');
-    observer.observe(heroText);
-    observer.observe(heroImage);
-  </script>
+  // Dynamic role typing
+  const roles = [
+    "a Full-Stack Developer.",
+    "a Cloud Engineer.",
+    "a MERN Stack Developer.",
+    "an API Developer.",
+    "a Solution Architect (AWS).",
+    "a Solution Architect (GCP).",
+    "a Solution Architect (Azure).",
+    "a DevOps Specialist.",
+    "a Deployment Engineer.",
+    "a UI Engineer.",
+    "a UX Engineer.",
+    "a Web Engineer.",
+    "an E-commerce Developer.",
+    "a REST API Developer.",
+    "a GraphQL API Developer.",
+    "a Serverless App Developer.",
+    "a Hosting Architect.",
+    "a React Native Developer.",
+    "a Flutter App Developer.",
+    "an SEO Expert.",
+    "a Performance Optimization Expert.",
+    "an Admin Panel Developer.",
+    "a Dashboard Builder.",
+    "a Cloud Consultant."
+  ];
+
+  let roleIndex = 0;
+  const roleElement = document.getElementById("dynamic-role");
+
+  function showNextRole() {
+    roleElement.style.animation = "none";
+    roleElement.style.color = "white";  // Start with white
+    void roleElement.offsetWidth;  // Trigger reflow for restart
+    roleElement.textContent = roles[roleIndex];
+    roleElement.style.animation = "typing 1s steps(30, end) forwards, blink 0.7s step-end infinite";
+
+    // Change to red after typing completes (1 sec)
+    setTimeout(() => {
+      roleElement.style.color = "red";
+    }, 1000);
+
+    roleIndex = (roleIndex + 1) % roles.length;
+    setTimeout(showNextRole, 2000); // 2 seconds display time
+  }
+
+  showNextRole();
+</script>
+
 
 </body>
 </html>
