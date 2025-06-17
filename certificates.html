@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certificates | Akhil Shijo</title>
+
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+      color: #e5e7eb;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(31, 41, 55, 0.95);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    header .logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+
+    nav a:hover {
+      color: #f43f5e;
+      box-shadow: 0 0 8px #f43f5e;
+      transform: scale(1.1);
+    }
+
+    .buy-now {
+      background: #f43f5e;
+      padding: 6px 12px;
+      border-radius: 6px;
+      color: #fff;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+
+    .buy-now:hover {
+      background: #be123c;
+      transform: scale(1.1);
+      box-shadow: 0 0 10px #be123c;
+    }
+
+    section.certificates {
+      padding: 60px 30px;
+      text-align: center;
+    }
+
+    section.certificates h2 {
+      font-size: 2.5em;
+      color: #f43f5e;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px rgba(244, 63, 94, 0.7);
+      font-weight: 700;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      width: 95%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .cert-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+    }
+
+    .cert-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cert-card:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 12px 30px rgba(244, 63, 94, 0.6);
+    }
+
+    .cert-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .cert-card p {
+      color: #f1f5f9;
+      font-weight: 600;
+      font-size: 1em;
+      margin: 10px 0 0;
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 14px 32px;
+      background: linear-gradient(90deg, #f43f5e, #e11d48);
+      border-radius: 12px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+
+    .back-btn:hover {
+      background: linear-gradient(90deg, #e11d48, #be123c);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(244, 63, 94, 0.6);
+    }
+
+    footer {
+      background: rgba(31, 41, 55, 0.95);
+      backdrop-filter: blur(6px);
+      padding: 30px 20px;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.95em;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #94a3b8;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #f43f5e;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 10px 20px;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="images/akhil shijo.jpg" alt="Akhil Shijo">
+      <strong>Akhil Shijo</strong>
+    </div>
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="education.html">QUALIFICATIONS</a>
+      <a href="http://akhil-portfolio-woad.vercel.app">PORTFOLIO</a>
+      <a href="resume.html">RESUME</a>
+      <a href="clients.html">CLIENTS</a>
+      <a href="pricing.html">PRICING</a>
+      <a href="certificates.html">CERTIFICATIONS</a>
+      <a href="contact.html">CONTACT</a>
+      
+    </nav>
+  </header>
+
+  <section class="certificates">
+    <h2>My Certifications</h2>
+    <div class="cert-grid">
+      <a href="certificates/cert1.pdf" target="_blank" class="cert-card">
+        <img src="images/cert/ACNN-cert2-page-00001.jpg" alt="Certificate 1">
+        <p>NETWORK FUNDAMENTALS</p>
+      </a>
+       <a href="certificates/cert20.pdf" target="_blank" class="cert-card">
+          <img src="images/CERT/Akhil Shijo (1)-page-00001.jpg" alt="Certificate 20">
+          <p>NODE JS & MONGODB</p>
+        </a>
+      <a href="certificates/cert2.pdf" target="_blank" class="cert-card">
+        <img src="images/CERT/AKHIL SHIJO ADBMS-page-00001.jpg" alt="Certificate 2">
+        <p>DATABASE & SQL</p>
+      </a>
+      <a href="certificates/cert3.pdf" target="_blank" class="cert-card">
+        <img src="images/cert/AkhilShijo_JT4Y8R (1)-page-00001.jpg" alt="Certificate 3">
+        <p>CYBER SECURITY & ETHICAL HACKING</p>
+      </a>
+      <a href="certificates/cert4.pdf" target="_blank" class="cert-card">
+        <img src="images/CERT/AkhilShijo_LH1UZ0 (1)-page-00001.jpg" alt="Certificate 4">
+        <p>ML with GOOGLE COLLAB</p>
+      </a>
+       <a href="certificates/cert5.pdf" target="_blank" class="cert-card">
+        <img src="images/CERT/APPLICATION USING ANDROID-page-00001.jpg" alt="Certificate 5">
+        <p>ANDROID APPLICATION</p>
+      </a>
+       <a href="certificates/cert6.pdf" target="_blank" class="cert-card">
+        <img src="images/CERT/CN_cert1-page-00001.jpg" alt="Certificate 6">
+        <p>COMPUTER NETWORKING MASTER</p>
+      </a>
+       <a href="certificates/cert7.pdf" target="_blank" class="cert-card">
+        <img src="images/CERT/introduction to android-page-00001.jpg" alt="Certificate 7">
+        <p>ANDROID STUDIO</p>
+      </a>
+       <a href="certificates/cert8.pdf" target="_blank" class="cert-card">
+        <img src="images/CERT/Jquery 3 pre 2-page-00001.jpg" alt="Certificate 8">
+        <p>JQUERY 3</p>
+      </a>
+       <a href="certificates/cert9.pdf" target="_blank" class="cert-card">
+        <img src="images/CERT/Jquery Final-page-00001.jpg" alt="Certificate 9">
+        <p>TechA JQUERY FOUNDATION</p>
+      </a>
+       <a href="certificates/cert10.pdf" target="_blank" class="cert-card">
+        <img src="images/CERT/Jquery UI pre 1-page-00001.jpg" alt="Certificate 10">
+        <p>JQUERY UI DEVELOPMENT</p>
+      </a>
+       <a href="certificates/cert11.pdf" target="_blank" class="cert-card">
+        <img src="images/CERT/oops-page-00001.jpg" alt="Certificate 11">
+        <p>OBJECT ORIENTED PROGRAMMING</p>
+      </a>
+       <a href="certificates/cert12.pdf" target="_blank" class="cert-card">
+        <img src="images/CERT/PHP advanced pre 2-page-00001.jpg" alt="Certificate 12">
+        <p>PHP ADVANCED</p>
+      </a>
+        <a href="certificates/cert13.pdf" target="_blank" class="cert-card">
+          <img src="images/CERT/PHP begining pre 1-page-00001.jpg" alt="Certificate 13">
+          <p>PHP 8.3</p>
+        </a>
+        <a href="certificates/cert14.pdf" target="_blank" class="cert-card">
+          <img src="images/CERT/PHP FINAL-page-00001.jpg" alt="Certificate 14">
+          <p>TechA PHP DEVELOPER</p>
+        </a>
+        <a href="certificates/cert15.pdf" target="_blank" class="cert-card">
+          <img src="images/CERT/AKHIL SHIJO FOUNDATION-page-00001.jpg" alt="Certificate 15">
+          <p>AI FOUNDATION</p>
+        </a>
+        <a href="certificates/cert16.pdf" target="_blank" class="cert-card">
+          <img src="images/CERT/AKHIL SHIJO-1-page-00001.jpg" alt="Certificate 16">
+          <p>ARTIFICIAL INTELLIGENCE</p>
+        </a>
+        <a href="certificates/cert17.pdf" target="_blank" class="cert-card">
+          <img src="images/CERT/AKHIL SHIJO-2-page-00001.jpg" alt="Certificate 17">
+          <p>DEEP LEARNING</p>
+        </a>
+        <a href="certificates/cert18.pdf" target="_blank" class="cert-card">
+          <img src="images/CERT/AKHIL SHIJO-3-page-00001.jpg" alt="Certificate 18">
+          <p>NATURAL LANGUAGE PROCESSING</p>
+        </a>
+        <a href="certificates/cert19.pdf" target="_blank" class="cert-card">
+          <img src="images/CERT/Orange Corporate Best Team Performance Certificate-page-00001.jpg" alt="Certificate 19">
+          <p>BEST TEAM PERFORMANCE</p>
+        </a>
+       
+
+    </div>
+    <a href="index.html" class="back-btn">⬅ Back to Home</a>
+  </section>
+ <footer>
+    <div style="margin-bottom: 12px;">
+      <a href="https://github.com/your-github" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/your-linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:yourmail@example.com"><i class="fas fa-envelope"></i></a>
+    </div>
+    &copy; 2025 <strong style="color: #f43f5e;">Akhil Shijo</strong>. All Rights Reserved.
+  </footer>
+
+  <script>
+    const certObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.cert-card').forEach(card => {
+      certObserver.observe(card);
+    });
+  </script>
+
+</body>
+</html>

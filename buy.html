@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Akhil Shijo | Secure Payment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f1f5f9;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .payment-container, #invoice {
+      background: rgba(30, 41, 59, 0.95);
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+      text-align: center;
+      max-width: 450px;
+      width: 90%;
+      animation: fadeIn 1s ease-out;
+      backdrop-filter: blur(8px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1, h2 {
+      color: #f43f5e;
+      margin-bottom: 10px;
+    }
+
+    .payment-container p {
+      font-size: 1em;
+      color: #cbd5e1;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      width: 80%;
+      margin-bottom: 15px;
+      font-size: 1em;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #f43f5e, #e11d48);
+      padding: 14px 30px;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.3s;
+      margin-top: 10px;
+      box-shadow: 0 4px 15px rgba(244,63,94,0.4);
+    }
+
+    .btn:hover {
+      background: linear-gradient(90deg, #e11d48, #be123c);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 20px rgba(244,63,94,0.6);
+    }
+
+    .note {
+      margin-top: 15px;
+      font-size: 0.85em;
+      color: #64748b;
+    }
+
+    #invoice {
+      display: none;
+      background: #fff;
+      color: #1e293b;
+      padding: 30px;
+      max-width: 600px;
+      border-radius: 12px;
+    }
+
+    #invoice table {
+      width: 100%;
+      margin-top: 15px;
+      border-collapse: collapse;
+    }
+
+    #invoice th, #invoice td {
+      border: 1px solid #cbd5e1;
+      padding: 10px;
+      text-align: left;
+    }
+
+    #successMsg {
+      display: none;
+      color: #16a34a;
+      font-weight: 700;
+      margin-top: 20px;
+      font-size: 1.1em;
+    }
+
+    .highlight-client {
+      font-weight: 700;
+      color: #e11d48;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="payment-container" id="paymentBox">
+    <h1>Secure Payment</h1>
+    <p id="serviceDesc">Loading service...</p>
+
+    <input type="text" id="payerName" placeholder="Enter Your Name" oninput="checkName()" />
+
+    <a class="btn" href="#" id="payBtn" onclick="payNow()" style="pointer-events: none; opacity: 0.5;">Pay</a>
+
+    <div class="note">You’ll be redirected to Razorpay checkout</div>
+  </div>
+
+  <div id="invoice"></div>
+  <div id="successMsg">✅ Payment Successful!</div>
+  <a href="index.html" class="btn" id="backBtn" style="display:none;">⬅ Back to Home</a>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const service = params.get('service') || 'Custom Service';
+    const priceParam = params.get('price') || '4999';
+    const priceText = `₹${priceParam}`;
+    const amountPaise = parseInt(priceParam) * 100;
+
+    document.getElementById('serviceDesc').innerText = `Proceed to pay for: ${decodeURIComponent(service)}`;
+    document.getElementById('payBtn').innerText = `Pay ${priceText}`;
+
+    function checkName() {
+      const nameInput = document.getElementById('payerName').value.trim();
+      const payBtn = document.getElementById('payBtn');
+      if (nameInput.length > 0) {
+        payBtn.style.pointerEvents = 'auto';
+        payBtn.style.opacity = '1';
+      } else {
+        payBtn.style.pointerEvents = 'none';
+        payBtn.style.opacity = '0.5';
+      }
+    }
+
+    function payNow() {
+      const clientName = document.getElementById('payerName').value.trim();
+      if (clientName === "") {
+        alert("Please enter your name before proceeding.");
+        return;
+      }
+
+      var options = {
+        "key": "rzp_test_cAb1OjW2zX8866",
+        "amount": amountPaise,
+        "currency": "INR",
+        "name": "Akhil Shijo",
+        "description": decodeURIComponent(service),
+        "image": "https://avatars.githubusercontent.com/u/9919?s=64",
+        "handler": function (response) {
+          document.getElementById('successMsg').style.display = 'block';
+          showInvoice(response.razorpay_payment_id, clientName);
+        },
+        "prefill": {
+          "name": clientName,
+          "email": "client@example.com",
+          "contact": "9999999999"
+        },
+        "theme": {
+          "color": "#f43f5e"
+        }
+      };
+      var rzp1 = new Razorpay(options);
+      rzp1.open();
+    }
+
+    function showInvoice(paymentId, clientName) {
+      const date = new Date();
+      const dateStr = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+      const invoiceHTML = `
+        <h2>Invoice</h2>
+        <p><strong>Invoice No:</strong> ${paymentId}</p>
+        <p><strong>Date:</strong> ${dateStr}</p>
+        <table>
+          <tr>
+            <th>Service</th>
+            <th>Amount</th>
+          </tr>
+          <tr>
+            <td>${decodeURIComponent(service)}</td>
+            <td>${priceText}</td>
+          </tr>
+        </table>
+        <p style="margin-top:10px;"><strong>Paid by:</strong> <span class="highlight-client">${clientName}</span></p>
+        <p>Thank you for your business!</p>
+      `;
+      const invoiceDiv = document.getElementById('invoice');
+      invoiceDiv.innerHTML = invoiceHTML;
+      invoiceDiv.style.display = 'block';
+      document.getElementById('paymentBox').style.display = 'none';
+      document.getElementById('backBtn').style.display = 'inline-block';
+      window.print();
+    }
+  </script>
+
+</body>
+</html>
