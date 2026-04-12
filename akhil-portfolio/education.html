@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akhil Shijo | Education</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #e5e7eb;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 40px;
+      background: rgba(15, 23, 42, 0.9);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      flex-wrap: wrap;
+    }
+    header .logo {
+      display: flex;
+      align-items: center;
+    }
+    header .logo img {
+      width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;
+    }
+    header .logo strong {
+      color: #f43f5e; font-weight: 700; font-size: 1.2rem;
+    }
+    nav {
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    nav a {
+      color: #e5e7eb; text-decoration: none; font-weight: 500;
+      padding: 6px 10px; border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      color: #f43f5e; box-shadow: 0 0 8px #f43f5e; transform: scale(1.1);
+    }
+    .edu-title {
+      text-align: center; font-size: 2.2rem; color: #f43f5e; margin: 40px 0 10px;
+    }
+    .quote {
+      text-align: center; color: #94a3b8; font-style: italic; margin-bottom: 30px;
+    }
+    .train-track {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 20px; padding: 0 20px 40px;
+    }
+    .edu-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px; padding: 20px; width: 280px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .edu-card:hover {
+      transform: scale(1.05); box-shadow: 0 0 20px #f43f5e;
+    }
+    .edu-img { width: 100%; height: 160px; overflow: hidden; border-radius: 8px; margin-bottom: 10px; }
+    .edu-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .edu-card h3 { margin: 0 0 6px; color: #fbbf24; font-size: 1.1rem; }
+    .edu-card p { margin: 3px 0; color: #e2e8f0; font-size: 0.95rem; }
+    .badge { background: #f43f5e; color: white; font-size: 0.75rem; padding: 3px 8px; border-radius: 4px; margin-left: 6px; }
+    footer {
+      background: #0f172a; padding: 20px; text-align: center;
+    }
+    .footer-nav, .footer-social {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 10px 0;
+    }
+    .footer-nav a {
+      color: #9ca3af; font-size: 0.9rem; text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-nav a:hover { color: #f43f5e; }
+    .footer-social a {
+      color: #e5e7eb; font-size: 1.2rem; transition: color 0.3s;
+    }
+    .footer-social a:hover { color: #f43f5e; }
+    @media (max-width: 600px) {
+      header { padding: 10px 20px; }
+      .edu-card { width: 90%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="images/akhil shijo.jpg" alt="Akhil Shijo">
+      <strong>Akhil Shijo</strong>
+    </div>
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="education.html">QUALIFICATIONS</a>
+      <a href="https://akhil-portfolio-woad.vercel.app" target="_blank">PORTFOLIO</a>
+      <a href="resume.html">RESUME</a>
+      <a href="clients.html">CLIENTS</a>
+      <a href="pricing.html">PRICING</a>
+      <a href="certificates.html">CERTIFICATIONS</a>
+      <a href="contact.html">CONTACT</a>
+      
+    </nav>
+  </header>
+
+  <section class="education" id="education">
+    <h1 class="edu-title"><i class="fas fa-graduation-cap"></i> My <span>Education</span></h1>
+    <p class="quote">Education is not the learning of facts, but the training of the mind to think.</p>
+    <div class="train-track">
+      <div class="edu-card">
+        <div class="edu-img">
+          <img src="./images/ajce1.jpg" alt="Amal Jyothi College">
+        </div>
+        <h3>Master of Computer Application <span class="badge">Pursuing</span></h3>
+        <p>Amal Jyothi College of Engineering Autonomous | KTU</p>
+        <p>2024 - 2026</p>
+      </div>
+      <div class="edu-card">
+        <div class="edu-img">
+          <img src="./images/mg-university.png" alt="MES College Nedumkandam">
+        </div>
+        <h3>Bachelor of Computer Application <span class="badge">Completed</span></h3>
+        <p>MES College Nedumkandam | MGU</p>
+        <p>2021 - 2024 | CCPA: 7.54</p>
+      </div>
+      <div class="edu-card">
+        <div class="edu-img">
+          <img src="./images/hss.jpg" alt="ST Thomas Higher Secondary School">
+        </div>
+        <h3>HSC Science (Biology-Science) <span class="badge">Completed</span></h3>
+        <p>ST Thomas Higher Secondary School, Erattayar | DHSE</p>
+        <p>2019 - 2021 | 84%</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-nav">
+      <a href="index.html">HOME</a>
+      <a href="education.html">QUALIFICATIONS</a>
+      <a href="https://akhil-portfolio-woad.vercel.app" target="_blank">PORTFOLIO</a>
+      <a href="resume.html">RESUME</a>
+      <a href="clients.html">CLIENTS</a>
+      <a href="pricing.html">PRICING</a>
+      <a href="certificates.html">CERTIFICATIONS</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/in/akhil-shijo" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/14akhilshijo" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="mailto:akhilshijo20@gmail.com" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://x.com/ShijoAkhil92772" target="_blank" aria-label="Twitter / X"><i class="fab fa-twitter"></i></a>
+      <a href="https://wa.me/918137864105" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/_akhil_shijo_/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/your-facebook-profile" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    </div>
+    <p style="color: #64748b; font-size: 0.8rem;">&copy; 2025 Akhil Shijo. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
